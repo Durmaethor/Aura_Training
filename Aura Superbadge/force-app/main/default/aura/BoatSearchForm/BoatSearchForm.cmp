@@ -1,0 +1,68 @@
+<aura:component  implements="force:appHostable, flexipage:availableForAllPageTypes">
+
+    <!-- Attributes -->
+    <aura:attribute name="boatTypes" type="List" default="[]" />
+    <aura:attribute name="showNewButton" type="Boolean" default="false" />
+
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.initBoatSearchForm}" />
+
+    <!-- Create a horizontally aligned layout -->
+    <lightning:layout horizontalAlign="center">
+
+        <!-- Create a form to house elements with a grid style and wrap -->
+        <form class="slds-form_horizontal slds-form slds-grid slds-wrap">
+
+            <div class="slds-grid">
+
+                <lightning:layoutItem class="slds-var-m-around_x-small" size="8">
+
+                    <!-- Creates the dropdown option with an empty label -->
+                    <lightning:select aura:id="boatTypeSelect"
+                                        label=""
+                                        variant="label-hidden">
+
+                        <option value="">All Types</option>
+
+                        <!-- provides drop down options of various boat types -->
+                        <aura:iteration items="{!v.boatTypes}" var="item">
+
+                            <option value="{!item.Id}" text="{!item.Name}"></option>
+
+                        </aura:iteration>
+
+                    </lightning:select>
+
+                </lightning:layoutItem>
+
+                <lightning:layoutItem class="slds-m-vertical_x-small slds-m-horizontal_xxx-small">
+
+                    <!-- Create search button -->
+                    <lightning:button label="Search"
+                                        variant="brand"
+                                        class="slds-m-top_xx-small"
+                                        onclick="" />
+                                    
+                </lightning:layoutItem>
+
+                <aura:if isTrue="{!v.showNewButton}">
+
+                    <lightning:layoutItem class="slds-m-vertical_x-small slds-m-horizontal_xxx-small">
+
+                        <!-- create new button -->
+                        <lightning:button label="New"
+                                            variant="neutral"
+                                            class="slds-m-top_xx-small"
+                                            onclick="{!c.createNewBoat}" />
+
+                    </lightning:layoutItem>
+
+                </aura:if>
+
+            </div>
+
+        </form>
+
+    </lightning:layout>
+
+</aura:component>	
