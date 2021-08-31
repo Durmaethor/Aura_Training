@@ -20,6 +20,20 @@
             createBoatRecordEvent.setParams(params);
 
             createAccountContactEvent.fire();
+    },
+
+    onFormSubmit : function(component, event, helper) {
+        var boatTypeId = component.find("boatTypeSelect").get("v.value");
+        var data = {
+            "boatTypeId" : boatTypeId
+        };
+
+        var formsubmit = component.getEvent("formsubmit");
+        formsubmit.setParams({
+            "formData" : data
+        });
+
+        formsubmit.fire();
     }
     
 })
