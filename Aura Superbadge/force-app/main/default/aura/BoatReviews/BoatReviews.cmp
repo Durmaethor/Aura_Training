@@ -65,10 +65,11 @@
 
         <aura:if isTrue="{!v.boatReviews.length==0">
             <div class="slds-align_absolute-center">
-                No Reviews Available
+                No reviews available
             </div>
         </aura:if>
 
     </ui:scrollerWrapper>
 
-</aura:component>	
+
+</aura:component>
