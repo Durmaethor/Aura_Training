@@ -1,10 +1,10 @@
-<aura:component>
+<aura:component controller="BoatReviews">
 
     <aura:attribute name="boat" type="Boat__c" access="public" />
-    <aura:attribute name="boatReviews" type="BoatReviews__c[]" access="private"/>
+    <aura:attribute name="boatReviews" type="BoatReview__c[]" access="private"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler name="change" value="{!v.boat}" accesskey="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}" />
 
     <aura:method name="refresh" action="{!c.doInit}" access="public" />
 
@@ -50,9 +50,9 @@
                         </header>
 
                         <div class="slds-post__content slds-text-longform">
-                            <p>{!boatReview.Name</p>
-                            <lightning:formattedRichText value="{!boatReview.Comment__c" />
-                            <c:FiveStarRating value="{!boatReview.Rating__c" readonly="true" />
+                            <p>{!boatReview.Name}</p>
+                            <lightning:formattedRichText value="{!boatReview.Comment__c}" />
+                            <c:FiveStarRating value="{!boatReview.Rating__c}" readonly="true" />
                         </div>       
 
                     </article>
@@ -63,7 +63,7 @@
 
         </ul>
 
-        <aura:if isTrue="{!v.boatReviews.length==0">
+        <aura:if isTrue="{!v.boatReviews.length==0}">
             <div class="slds-align_absolute-center">
                 No reviews available
             </div>
@@ -72,4 +72,4 @@
     </ui:scrollerWrapper>
 
 
-</aura:component>
+</aura:component>	
