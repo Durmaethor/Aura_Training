@@ -1,8 +1,8 @@
 <aura:component>
 
-    <aura:registerEvent name="boatselect" type="c:BoatSelect" />
+    <!-- <aura:registerEvent name="boatselect" type="c:BoatSelect" />
     <aura:registerEvent name="boatselected" type="c:BoatSelected" />
-    <aura:registerEvent name="plotMapMarker" type="c:PlotMapMarker" />
+    <aura:registerEvent name="plotMapMarker" type="c:PlotMapMarker" /> -->
 
     <aura:attribute name="boat" type="Boat__c" />
     <aura:attribute name="selected" type="Boolean" default="false" />
